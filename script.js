@@ -2,10 +2,10 @@ let minuttes = 0;
 let hours = 0;
 let seconds = 0;
 let second = 0;
-let timeStab = document.getElementById("time");
-let stopBTN = document.getElementById("stop-btn");
-let startBTN = document.getElementById("start-btn");
-
+const timeStab = document.getElementById("time");
+const stopBTN = document.getElementById("stop-btn");
+const startBTN = document.getElementById("start-btn");
+const resetBTN = document.getElementById("Reset-btn");
 
 let myClock = setInterval(function() {Counter();},1000);
 
@@ -17,6 +17,12 @@ function Counter(){
 
     stopBTN.onclick = function(){
         second = 0
+    }
+
+    resetBTN.onclick = function(){
+        seconds = 0;
+        minuttes = 0
+        hours = 0;
     }
 
     seconds += second;
