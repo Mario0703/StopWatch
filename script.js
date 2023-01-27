@@ -7,7 +7,7 @@ let stopBTN = document.getElementById("stop-btn");
 let startBTN = document.getElementById("start-btn");
 
 
-const myClock = setInterval(function() {Counter();},1000);
+let myClock = setInterval(function() {Counter();},1000);
 
 function Counter(){
 
@@ -21,6 +21,7 @@ function Counter(){
 
     seconds += second;
 
+
     if(seconds >= 59){
         seconds = 0;
         minuttes +=1;
@@ -30,14 +31,19 @@ function Counter(){
         hours +=1
         minuttes =0
     }
-    console.log(formatTime(seconds))
 
-    function formatTime(seconds){
-        if(seconds <= 10){
-            "1"+seconds;
-        }
+    timeStab.innerHTML = FormatTime(seconds,minuttes,hours);
+    
+
+    function FormatTime(seconds,minuttes,hours){
+        seconds = seconds < 10 ? "0"+seconds : seconds;
+        minuttes = minuttes < 10 ? "0"+minuttes : minuttes;
+        hours = hours < 10 ? "0"+hours : hours;
+
         return `${hours}:${minuttes}:${seconds}`;
+
     }
+
 }
 
 
